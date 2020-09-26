@@ -17,16 +17,8 @@ import {BuildContentComponent} from './components/build-content/build-content.co
 })
 export class AppComponent implements OnInit {
   myControl = new FormControl();
-  options: string[] = [
-    'How could I ask about job opportunities as a student or recent grad?',
-    'How could I write a thank you letter after an interview?',
-    'How could I introduce myself on Linkedin?'
-  ];
+  options: string[] = ['How could I ask about job opportunities as a student or recent grad?', 'How could I write a thank you letter after an interview?', 'How could I introduce myself on Linkedin?'];
   filteredOptions: Observable<string[]>;
-
-  log(event: any) {
-    console.log(event)
-  }
 
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges.pipe(
