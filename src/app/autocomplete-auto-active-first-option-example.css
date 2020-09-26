@@ -8,6 +8,18 @@
   right: 0;
 }
 
+.example-sidenav {
+  width: 200px;
+}
+
+.example-navlist-item {
+  padding: auto;
+}
+
+.example-sidenav-container {
+  height: 100%;
+}
+
 .example-form {
   min-width: 150px;
   max-width: 1000px;
