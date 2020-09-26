@@ -32,7 +32,6 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <form class="example-form">
-
         <mat-form-field style="width: 100%">
           <input type="text"
                  placeholder="How can we help you today?"
@@ -41,16 +40,22 @@
                  [formControl]="myQuestionControl"
                  [matAutocomplete]="auto">
           <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let question of questionOptions | async" [value]="question.name">
+            <mat-option (click)="selectQuestionEvent(question)" *ngFor="let question of questionOptions | async" [value]="question.name">
               <span>{{question.name}}</span>
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
-
       </form>
 
+      <div class="flex-container" *ngIf="selectedQuestion != null">
+        <app-build-content [question]="selectedQuestion"></app-build-content>
+      </div>
+
+      <div class="flex-container" *ngIf="selectedQuestion == null">
+        <p>Please select a question to continue...</p>
+      </div>
+
       
-      <app-build-content></app-build-content>
       
     </mat-sidenav-content>
   </mat-sidenav-container>

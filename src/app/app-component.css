@@ -12,6 +12,11 @@
   background-color: #007bff;
 }
 
+.flex-container {
+  display: flex;
+  float: center;
+}
+
 .example-settings-nav-button {
   position: absolute; right: 20;
 }

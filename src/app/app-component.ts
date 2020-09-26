@@ -21,15 +21,25 @@ import {QuestionGroup} from './models/QuestionGroup';
 export class AppComponent implements OnInit {
   myQuestionControl = new FormControl();
   questionOptions: Observable<QuestionGroup[]>;
+  selectedQuestion: QuestionGroup;
   questions: QuestionGroup[] = [
     {
-      name: 'How could I ask about job opportunities as a student or recent grad?'
+      name: 'How could I ask about job opportunities as a student or recent grad?',
+      partOne: 'Job opportunities part 1',
+      partTwo: 'Job opportunities part 2',
+      partThree: 'Job opportunities part 3'
     },
     {
-      name: 'How could I write a thank you letter after an interview?'
+      name: 'How could I write a thank you letter after an interview?',
+      partOne: 'Thank you letter part 1',
+      partTwo: 'Thank you letter part 2',
+      partThree: 'Thank you letter part 3'
     },
     {
-      name: 'How could I introduce myself on Linkedin?'
+      name: 'How could I introduce myself on Linkedin?',
+      partOne: 'Introduce myself part 1',
+      partTwo: 'Introduce myself part 2',
+      partThree: 'Introduce myself part 3'
     }
   ];
 
@@ -38,6 +48,10 @@ export class AppComponent implements OnInit {
       startWith(''),
       map(question => question ? this._filterQuestions(question) : this.questions.slice())
     );
+  }
+
+  selectQuestionEvent(event: any) {
+    this.selectedQuestion = event;
   }
 
   private _filterQuestions(value: string): QuestionGroup[] {

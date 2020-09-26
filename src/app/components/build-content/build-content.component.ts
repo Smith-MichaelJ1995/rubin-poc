@@ -1,4 +1,7 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit, Input } from '@angular/core';
+
+// Importing Custom Models
+import {QuestionGroup} from '../../models/QuestionGroup';
 
 @Component({
   selector: 'app-build-content',
@@ -9,9 +12,13 @@ import { Component, NgModule, OnInit } from '@angular/core';
 
 export class BuildContentComponent implements OnInit {
 
+  @Input('question')
+  question: QuestionGroup;
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.question)
   }
 
 }
