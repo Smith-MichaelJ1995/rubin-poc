@@ -1,0 +1,52 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-toolbar {
+  background-color: #007bff;
+}
+
+.example-settings-nav-button {
+  position: absolute; right: 20;
+}
+
+.example-mat-menu {
+  float:right;
+}
+
+.example-logo {
+  width: 100px;
+  height: 25px;
+  margin: 1%;
+}
+
+.example-sidenav {
+  width: 200px;
+}
+
+.example-navlist-item {
+  padding: auto;
+}
+
+.example-sidenav-container {
+  height: 100%;
+  flex: 1;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 1000px;
+  padding: 1%;
+  width: 100%;
+  margin: auto;
+}
+
+.example-full-width {
+  width: 100%;
+}
