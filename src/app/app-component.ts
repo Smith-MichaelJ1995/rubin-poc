@@ -4,8 +4,11 @@ import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 
 
-// Importing custom components
+// Importing Custom Components
 import {BuildContentComponent} from './components/build-content/build-content.component';
+
+// Importing Custom Models
+import {QuestionGroup} from './models/QuestionGroup';
 
 /**
  * @title Highlight the first autocomplete option
@@ -16,21 +19,30 @@ import {BuildContentComponent} from './components/build-content/build-content.co
   styleUrls: ['app-component.css'],
 })
 export class AppComponent implements OnInit {
-  myControl = new FormControl();
-  options: string[] = ['How could I ask about job opportunities as a student or recent grad?', 'How could I write a thank you letter after an interview?', 'How could I introduce myself on Linkedin?'];
-  filteredOptions: Observable<string[]>;
+  myQuestionControl = new FormControl();
+  questionOptions: Observable<QuestionGroup[]>;
+  questions: QuestionGroup[] = [
+    {
+      name: 'How could I ask about job opportunities as a student or recent grad?'
+    },
+    {
+      name: 'How could I write a thank you letter after an interview?'
+    },
+    {
+      name: 'How could I introduce myself on Linkedin?'
+    }
+  ];
 
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
+    this.questionOptions = this.myQuestionControl.valueChanges.pipe(
       startWith(''),
-      map(value => this._filter(value))
+      map(question => question ? this._filterQuestions(question) : this.questions.slice())
     );
   }
 
-  private _filter(value: string): string[] {
+  private _filterQuestions(value: string): QuestionGroup[] {
     const filterValue = value.toLowerCase();
-
-    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+    return this.questions.filter(question => question.name.toLowerCase().indexOf(filterValue) === 0);
   }
 }
 
