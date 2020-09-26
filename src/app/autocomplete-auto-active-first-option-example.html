@@ -1,16 +1,33 @@
 <div class="example-container">
   <mat-toolbar color="primary" class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <h1 class="example-app-name">Responsive App</h1>
+    <img src="https://rubineducation.com/wp-content/uploads/2019/12/Rubin-Light-Logo.png" class="example-logo" alt="Rubin">
+
+    <button class="example-settings-nav-button" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>settings</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Redial</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>voicemail</mat-icon>
+        <span>Check voice mail</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>
+    </mat-menu>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container">
     <mat-sidenav #snav class="example-sidenav">
       <mat-nav-list>
-        <h4 mat-list-item>item1</h4>
-        <h4 mat-list-item>item2</h4>
-        <h4 mat-list-item>item3</h4>
-        <h4 mat-list-item>item4</h4>
+        <a mat-list-item>Item 1</a>
+        <a mat-list-item>Item 2</a>
+        <a mat-list-item>Item 3</a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
