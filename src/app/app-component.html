@@ -32,7 +32,8 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <form class="example-form">
-        <mat-form-field class="example-full-width">
+
+        <mat-form-field style="width: 100%">
           <input type="text"
                  placeholder="How can we help you today?"
                  aria-label="Number"
@@ -40,12 +41,17 @@
                  [formControl]="myControl"
                  [matAutocomplete]="auto">
           <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            <mat-option (click)="log(option)" *ngFor="let option of filteredOptions | async" [value]="option">
               {{option}}
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
+
       </form>
+
+      
+      <app-build-content></app-build-content>
+      
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
