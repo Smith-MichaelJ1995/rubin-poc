@@ -47,11 +47,11 @@
         </mat-form-field>
       </form>
 
-      <div class="flex-container" *ngIf="selectedQuestion != null">
+      <div *ngIf="selectedQuestion != null">
         <app-build-content [question]="selectedQuestion"></app-build-content>
       </div>
 
-      <div class="flex-container" *ngIf="selectedQuestion == null">
+      <div *ngIf="selectedQuestion == null">
         <p>Please select a question to continue...</p>
       </div>
 

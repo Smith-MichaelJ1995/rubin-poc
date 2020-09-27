@@ -25,21 +25,21 @@ export class AppComponent implements OnInit {
   questions: QuestionGroup[] = [
     {
       name: 'How could I ask about job opportunities as a student or recent grad?',
-      partOne: 'Job opportunities part 1',
-      partTwo: 'Job opportunities part 2',
-      partThree: 'Job opportunities part 3'
+      partOne: 'Job Opportunities Part 1',
+      partTwo: 'Job Opportunities Part 2',
+      partThree: 'Job Opportunities Part 3'
     },
     {
       name: 'How could I write a thank you letter after an interview?',
-      partOne: 'Thank you letter part 1',
-      partTwo: 'Thank you letter part 2',
-      partThree: 'Thank you letter part 3'
+      partOne: 'Thank You Letter Part 1',
+      partTwo: 'Thank You Letter Part 2',
+      partThree: 'Thank You Letter Part 3'
     },
     {
       name: 'How could I introduce myself on Linkedin?',
-      partOne: 'Introduce myself part 1',
-      partTwo: 'Introduce myself part 2',
-      partThree: 'Introduce myself part 3'
+      partOne: 'Introducing Myself Part 1',
+      partTwo: 'Introducing Myself Part 2',
+      partThree: 'Introducing Myself Part 3'
     }
   ];
 
