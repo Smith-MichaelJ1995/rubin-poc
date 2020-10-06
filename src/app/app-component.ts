@@ -9,6 +9,7 @@ import {BuildContentComponent} from './components/build-content/build-content.co
 
 // Importing Custom Models
 import {QuestionGroup} from './models/QuestionGroup';
+import {Card} from './models/Card';
 
 /**
  * @title Highlight the first autocomplete option
@@ -25,18 +26,42 @@ export class AppComponent implements OnInit {
   questions: QuestionGroup[] = [
     {
       name: 'How could I ask about job opportunities as a student or recent grad?',
+      cards: [
+        {
+          header: "",
+          subHeader: "",
+          image: "",
+          description: ""
+        } 
+      ],
       partOne: 'Job Opportunities Part 1',
       partTwo: 'Job Opportunities Part 2',
       partThree: 'Job Opportunities Part 3'
     },
     {
       name: 'How could I write a thank you letter after an interview?',
+      cards: [
+        {
+          header: "",
+          subHeader: "",
+          image: "",
+          description: "" 
+        } 
+      ],
       partOne: 'Thank You Letter Part 1',
       partTwo: 'Thank You Letter Part 2',
       partThree: 'Thank You Letter Part 3'
     },
     {
       name: 'How could I introduce myself on Linkedin?',
+      cards: [
+        {
+          header: "",
+          subHeader: "",
+          image: "",
+          description: ""
+        } 
+      ],
       partOne: 'Introducing Myself Part 1',
       partTwo: 'Introducing Myself Part 2',
       partThree: 'Introducing Myself Part 3'
