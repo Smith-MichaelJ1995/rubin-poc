@@ -56,11 +56,23 @@ export class AppComponent implements OnInit {
       name: 'How could I introduce myself on Linkedin?',
       cards: [
         {
-          header: "",
-          subHeader: "",
-          image: "",
-          description: ""
-        } 
+          header: "This is header one Linkedin",
+          subHeader: "This is subheader one Linkedin",
+          image: "../../../assets/images/linkedin-card-1.jpg",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+          header: "This is header two Linkedin",
+          subHeader: "This is subheader two Linkedin",
+          image: "../../../assets/images/linkedin-card-2.jpg",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+          header: "This is header three Linkedin",
+          subHeader: "This is subheader three Linkedin",
+          image: "../../../assets/images/linkedin-card-3.jpg",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        }   
       ],
       partOne: 'Introducing Myself Part 1',
       partTwo: 'Introducing Myself Part 2',
