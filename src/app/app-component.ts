@@ -9,7 +9,7 @@ import {BuildContentComponent} from './components/build-content/build-content.co
 
 // Importing Custom Models
 import {QuestionGroup} from './models/QuestionGroup';
-import {Card} from './models/Card';
+import {Panel} from './models/Panel';
 
 /**
  * @title Highlight the first autocomplete option
@@ -26,8 +26,9 @@ export class AppComponent implements OnInit {
   questions: QuestionGroup[] = [
     {
       name: 'How could I ask about job opportunities as a student or recent grad?',
-      cards: [
+      panels: [
         {
+          label:"",
           header: "",
           subHeader: "",
           image: "",
@@ -40,8 +41,9 @@ export class AppComponent implements OnInit {
     },
     {
       name: 'How could I write a thank you letter after an interview?',
-      cards: [
+      panels: [
         {
+          label:"",
           header: "",
           subHeader: "",
           image: "",
@@ -54,25 +56,28 @@ export class AppComponent implements OnInit {
     },
     {
       name: 'How could I introduce myself on Linkedin?',
-      cards: [
+      panels: [
         {
-          header: "This is header one Linkedin",
+          label:"This is the linkedin one label",
+          header: "Header one Linkedin",
           subHeader: "This is subheader one Linkedin",
           image: "../../../assets/images/linkedin-card-1.jpg",
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
         {
-          header: "This is header two Linkedin",
+          label:"This is the linkedin two label",
+          header: "Header two Linkedin",
           subHeader: "This is subheader two Linkedin",
           image: "../../../assets/images/linkedin-card-2.jpg",
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
         {
-          header: "This is header three Linkedin",
+          label:"This is the linkedin three label",
+          header: "Header three Linkedin",
           subHeader: "This is subheader three Linkedin",
           image: "../../../assets/images/linkedin-card-3.jpg",
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        }   
+        }
       ],
       partOne: 'Introducing Myself Part 1',
       partTwo: 'Introducing Myself Part 2',

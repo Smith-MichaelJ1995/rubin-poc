@@ -14,19 +14,18 @@ export class BuildContentComponent implements OnInit {
 
   @Input('question')
   question: QuestionGroup;
-  panelOpenState = false;
-  step = 0;
+  selectedPanelIndex = 0;
 
-  setStep(index: number) {
-    this.step = index;
+  setSelectedPanelIndex(index: number) {
+    this.selectedPanelIndex = index;
   }
 
-  nextStep() {
-    this.step++;
+  nextPanelIndex() {
+    this.selectedPanelIndex++;
   }
 
-  prevStep() {
-    this.step--;
+  prevPanelIndex() {
+    this.selectedPanelIndex--;
   }
 
   constructor() { }
