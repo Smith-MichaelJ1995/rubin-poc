@@ -1,6 +1,8 @@
 <div class="flex-container">
     <div class="flex-column-container">
-        <mat-card *ngFor="let card of question.cards" class="example-card">
+      <mat-tab-group>
+        <mat-tab *ngFor="let card of question.cards" label="{{ card.label }}">
+          <mat-card class="example-card">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
               <mat-card-title><b>{{ card.header }}</b></mat-card-title>
@@ -21,6 +23,8 @@
               <button mat-raised-button color="primary">Submit</button>
             </mat-card-actions>
           </mat-card>
+        </mat-tab>
+      </mat-tab-group>
     </div>
     <div class="flex-column-container">
       <div>This is box 2</div>

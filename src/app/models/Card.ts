@@ -1,5 +1,6 @@
 // creating an object type
 export interface Card {
+    label: string;
     header: string;
     subHeader: string;
     image: string;
