@@ -1,32 +1,46 @@
 <div class="flex-container">
     <div class="flex-column-container">
       <mat-accordion class="example-headers-align">
-        <mat-expansion-panel *ngFor="let panel of question.panels" [expanded]="selectedPanelIndex === question.panels.indexOf(panel)" (opened)="setSelectedPanelIndex(question.panels.indexOf(panel))">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <div class="example-header-image"></div>
-            </mat-panel-title>
-            <mat-panel-description>
-              {{ panel.header }}
-            </mat-panel-description>
-          </mat-expansion-panel-header>
+        <mat-expansion-panel *ngFor="let form of panelForms" [expanded]="selectedPanelIndex === panelForms.indexOf(form)" (opened)="setSelectedPanelIndex(panelForms.indexOf(form))">
+          <form [formGroup]="form">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <div class="example-header-image"></div>
+              </mat-panel-title>
+              <mat-panel-description>
+                {{ form.description }}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-action-row>
+              <button mat-button color="warn" (click)="prevPanelIndex()">Previous</button>
+              <button mat-button color="primary" (click)="nextPanelIndex()">Next</button>
+            </mat-action-row>
+          </form>
       
           <!-- card body start -->
-          <div>
-            <p>
-              {{ panel.description }}
-            </p>
+          <!-- <form [formGroup]="form">
+  
+            <label>
+              First Name:
+              <input type="text" formControlName="firstName">
+            </label>
+          
+            <label>
+              Last Name:
+              <input type="text" formControlName="lastName">
+            </label>
+          
+          </form> -->
+          <!-- <div style="width:50%;">
+            
+            {{ panel.description }}
+
             <mat-form-field>
               <mat-label>Address 2</mat-label>
               <textarea matInput></textarea>
             </mat-form-field>
-          </div>
+          </div> -->
           <!-- card body end -->
-          
-          <mat-action-row>
-            <button mat-button color="warn" (click)="prevPanelIndex()">Previous</button>
-            <button mat-button color="primary" (click)="nextPanelIndex()">Next</button>
-          </mat-action-row>
         </mat-expansion-panel>
       </mat-accordion>
     </div>
