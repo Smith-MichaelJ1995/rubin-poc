@@ -9,6 +9,7 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DemoMaterialModule} from './app/material-module';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import { CKEditorModule } from 'ckeditor4-angular';
 
 import {AppComponent} from './app/app-component';
 
@@ -27,7 +28,8 @@ import {BuildContentComponent} from '../src/app/components/build-content/build-c
     HttpClientModule,
     DemoMaterialModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CKEditorModule
   ],
   entryComponents: [AppComponent],
   declarations: [AppComponent, BuildContentComponent],
