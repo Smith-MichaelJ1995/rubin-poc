@@ -42,11 +42,26 @@
       </form>
 
       <div *ngIf="templateQueryResponses.length == 0">
-        <p>Please enter in your topic above & pre-built templates will appear on this list..</p>
+        <p style="text-align: center;">Please enter in your topic above & pre-built templates will appear on this list..</p>
       </div>
 
       <div *ngIf="templateQueryResponses.length > 0">
-        <p>list is {{ templateQueryResponses.length }} elements long</p>
+          <mat-expansion-panel expanded="true" style="margin-top: 20px" *ngFor="let result of this.templateQueryResponses">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <div class="example-header-image"></div>
+                  <h3><i>{{ result.template.title}}</i></h3>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-panel-description>
+                <p>
+                  {{ result.template.description }}
+                </p>
+              </mat-panel-description>
+              <mat-action-row>
+                <button mat-button color="primary">Select</button>
+              </mat-action-row>
+          </mat-expansion-panel>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
