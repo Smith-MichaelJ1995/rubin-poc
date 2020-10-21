@@ -9,8 +9,7 @@ import Fuse from 'fuse.js'
 import {BuildContentComponent} from './components/build-content/build-content.component';
 
 // Importing Custom Models
-import {QuestionGroup} from './models/QuestionGroup';
-import {Panel} from './models/Panel';
+import {Template} from './models/Template';
 
 /**
  * @title Highlight the first autocomplete option
@@ -24,65 +23,18 @@ export class AppComponent implements OnInit {
   myFormGroup = new FormGroup({
     question: new FormControl("")
   });
-  questions: QuestionGroup[] = [
+  questions: Template[] = [
     {
-      name: 'How could I ask about job opportunities as a student or recent grad?',
-      panels: [
-        {
-          label:"",
-          header: "",
-          subHeader: "",
-          image: "",
-          description: ""
-        } 
-      ],
-      partOne: 'Job Opportunities Part 1',
-      partTwo: 'Job Opportunities Part 2',
-      partThree: 'Job Opportunities Part 3'
+      title: 'How could I ask about job opportunities as a student or recent grad?',
+      description: ''
     },
     {
-      name: 'How could I write a thank you letter after an interview?',
-      panels: [
-        {
-          label:"",
-          header: "",
-          subHeader: "",
-          image: "",
-          description: "" 
-        } 
-      ],
-      partOne: 'Thank You Letter Part 1',
-      partTwo: 'Thank You Letter Part 2',
-      partThree: 'Thank You Letter Part 3'
+      title: 'How could I write a thank you letter after an interview?',
+      description: ''
     },
     {
-      name: 'How could I introduce myself on Linkedin?',
-      panels: [
-        {
-          label:"This is the linkedin one label",
-          header: "Header one Linkedin",
-          subHeader: "This is subheader one Linkedin",
-          image: "../../../assets/images/linkedin-card-1.jpg",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        },
-        {
-          label:"This is the linkedin two label",
-          header: "Header two Linkedin",
-          subHeader: "This is subheader two Linkedin",
-          image: "../../../assets/images/linkedin-card-2.jpg",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        },
-        {
-          label:"This is the linkedin three label",
-          header: "Header three Linkedin",
-          subHeader: "This is subheader three Linkedin",
-          image: "../../../assets/images/linkedin-card-3.jpg",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        }
-      ],
-      partOne: 'Introducing Myself Part 1',
-      partTwo: 'Introducing Myself Part 2',
-      partThree: 'Introducing Myself Part 3'
+      title: 'How could I introduce myself on Linkedin?',
+      description: ''
     }
   ];
 
@@ -103,7 +55,8 @@ export class AppComponent implements OnInit {
       // ignoreLocation: false,
       // ignoreFieldNorm: false,
       keys: [
-        "name"
+        "title",
+        "description"
       ]
     };
     
