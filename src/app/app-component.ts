@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 
@@ -20,9 +20,9 @@ import {Card} from './models/Card';
   styleUrls: ['app-component.css'],
 })
 export class AppComponent implements OnInit {
-  myQuestionControl = new FormControl();
-  questionOptions: Observable<QuestionGroup[]>;
-  selectedQuestion: QuestionGroup;
+  myFormGroup = new FormGroup({
+    question: new FormControl("")
+  });
   questions: QuestionGroup[] = [
     {
       name: 'How could I ask about job opportunities as a student or recent grad?',
@@ -85,20 +85,10 @@ export class AppComponent implements OnInit {
     }
   ];
 
-  ngOnInit() {
-    this.questionOptions = this.myQuestionControl.valueChanges.pipe(
-      startWith(''),
-      map(question => question ? this._filterQuestions(question) : this.questions.slice())
-    );
-  }
+  ngOnInit() {}
 
-  selectQuestionEvent(event: any) {
-    this.selectedQuestion = event;
-  }
-
-  private _filterQuestions(value: string): QuestionGroup[] {
-    const filterValue = value.toLowerCase();
-    return this.questions.filter(question => question.name.toLowerCase().indexOf(filterValue) === 0);
+  onFormSubmit() {
+    console.log('Submitted Question:' + this.myFormGroup.get('question')?.value);
   }
 }
 

@@ -31,32 +31,15 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <form class="example-form">
+      <form class="example-form" [formGroup]="myFormGroup" (ngSubmit)="onFormSubmit()">
         <mat-form-field style="width: 100%">
           <input type="text"
-                 placeholder="How can we help you today?"
+                 placeholder="Search for pre-built communication templates here"
                  aria-label="Number"
                  matInput
-                 [formControl]="myQuestionControl"
-                 [matAutocomplete]="auto">
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option (click)="selectQuestionEvent(question)" *ngFor="let question of questionOptions | async" [value]="question.name">
-              <span>{{question.name}}</span>
-            </mat-option>
-          </mat-autocomplete>
+                 formControlName="question">
         </mat-form-field>
       </form>
-
-      <div *ngIf="selectedQuestion != null">
-        <app-build-content [question]="selectedQuestion"></app-build-content>
-      </div>
-
-      <div *ngIf="selectedQuestion == null">
-        <p>Please select a question to continue...</p>
-      </div>
-
-      
-      
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
