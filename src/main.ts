@@ -11,6 +11,7 @@ import {DemoMaterialModule} from './app/material-module';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { CKEditorModule } from 'ckeditor4-angular';
 
+import {MatExpansionModule} from '@angular/material/expansion';
 import {AppComponent} from './app/app-component';
 
 // Application Components
@@ -29,7 +30,8 @@ import {BuildContentComponent} from '../src/app/components/build-content/build-c
     DemoMaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    CKEditorModule
+    CKEditorModule,
+    MatExpansionModule
   ],
   entryComponents: [AppComponent],
   declarations: [AppComponent, BuildContentComponent],
