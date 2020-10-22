@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
   templateQueryResponses: TemplateQueryResponse[];
   templateDatabase: Template[];
 
+  // perform fuzzy string search based on question
   fuseSearch(questionText: string) {
 
     let settings = {
