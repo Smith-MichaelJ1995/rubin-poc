@@ -1,3 +1,5 @@
+/* WHEN HAVE TIME, CONVERT FROM CSS TO SCSS */
+
 .example-container {
   display: flex;
   flex-direction: column;
@@ -10,6 +12,17 @@
 
 .example-toolbar {
   background-color: #007bff;
+}
+
+.mat-button-color {
+  background-color: #007bff;
+}
+
+.grid-container {
+  display: grid;
+  /* height: 400px; */
+  align-content: start;
+  margin: 0 2% 0 2%;
 }
 
 .flex-container {

@@ -41,11 +41,11 @@
         </mat-form-field>
       </form>
 
-      <div *ngIf="templateQueryResponses.length == 0">
+      <div class="grid-container" *ngIf="templateQueryResponses.length == 0">
         <p style="text-align: center;">Please enter in your topic above & pre-built templates will appear on this list..</p>
       </div>
 
-      <div *ngIf="templateQueryResponses.length > 0">
+      <div class="grid-container" *ngIf="templateQueryResponses.length > 0">
           <mat-expansion-panel expanded="true" style="margin-top: 20px" *ngFor="let result of this.templateQueryResponses">
               <mat-expansion-panel-header>
                 <mat-panel-title>
@@ -60,7 +60,7 @@
                 </p>
               </mat-panel-description>
               <mat-action-row>
-                <button mat-button color="primary">Select</button>
+                <button class="mat-button-color" mat-raised-button color="primary">Select</button>
               </mat-action-row>
           </mat-expansion-panel>
       </div>
