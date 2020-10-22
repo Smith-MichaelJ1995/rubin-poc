@@ -41,7 +41,9 @@
         </mat-form-field>
       </form>
 
-      <div class="grid-container" *ngIf="templateQueryResponses.length == 0">
+      <router-outlet></router-outlet>
+
+      <!-- <div class="grid-container" *ngIf="templateQueryResponses.length == 0">
         <p style="text-align: center;">Please enter in your topic above & pre-built templates will appear on this list..</p>
       </div>
 
@@ -60,10 +62,13 @@
                 </p>
               </mat-panel-description>
               <mat-action-row>
-                <button class="mat-button-color" mat-raised-button color="primary">Select</button>
+                <a [routerLink]="'/build-content'">
+                  <button class="mat-button-color" mat-raised-button color="primary">Select</button>
+                </a>
               </mat-action-row>
           </mat-expansion-panel>
-      </div>
+      </div> -->
+      
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

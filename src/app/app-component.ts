@@ -4,10 +4,6 @@ import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import Fuse from 'fuse.js'
 
-
-// Importing Custom Components
-import {BuildContentComponent} from './components/build-content/build-content.component';
-
 // Importing Custom Models
 import {Template} from './models/Template';
 import {TemplateQueryResponse} from './models/TemplateQueryResponse';
