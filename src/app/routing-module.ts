@@ -5,7 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 const routes: Routes = [
- { path: '', component: SearchResultsComponent }
+ { path: '', component: SearchResultsComponent },
+ 
 ];
 
 @NgModule({
