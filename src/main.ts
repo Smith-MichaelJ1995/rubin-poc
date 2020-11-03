@@ -10,13 +10,16 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DemoMaterialModule} from './app/material-module';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { CKEditorModule } from 'ckeditor4-angular';
+import { CommonModule } from '@angular/common';
+import { RoutingModule } from './app/routing-module';
+import { APP_BASE_HREF } from '@angular/common';
 
 import {MatExpansionModule} from '@angular/material/expansion';
 import {AppComponent} from './app/app-component';
 
-// Application Components
-// Importing custom components
-import {BuildContentComponent} from '../src/app/components/build-content/build-content.component';
+// Importing Custom Components
+import {HomepageComponent} from '../src/app/components/home/homepage.component';
+import {TemplateComponent} from '../src/app/components/template/template.component';
 
 // Default MatFormField appearance to 'fill' as that is the new recommended approach and the
 // `legacy` and `standard` appearances are scheduled for deprecation in version 10.
@@ -31,13 +34,16 @@ import {BuildContentComponent} from '../src/app/components/build-content/build-c
     MatNativeDateModule,
     ReactiveFormsModule,
     CKEditorModule,
-    MatExpansionModule
+    MatExpansionModule,
+    CommonModule,
+    RoutingModule
   ],
   entryComponents: [AppComponent],
-  declarations: [AppComponent, BuildContentComponent],
+  declarations: [AppComponent, HomepageComponent, TemplateComponent],
   bootstrap: [AppComponent],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
+    { provide: APP_BASE_HREF, useValue : '/' }
   ]
 })
 export class AppModule {}

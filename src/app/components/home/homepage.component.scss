@@ -1,0 +1,77 @@
+/* WHEN HAVE TIME, CONVERT FROM CSS TO SCSS */
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .example-toolbar {
+    background-color: #007bff;
+  }
+  
+  .mat-button-color {
+    background-color: #007bff;
+  }
+  
+  .grid-container {
+    display: grid;
+    /* height: 400px; */
+    align-content: start;
+    margin: 0 2% 0 2%;
+  }
+  
+  .flex-container {
+    display: flex;
+    float: center;
+  }
+  
+  .example-settings-nav-button {
+    position: absolute; right: 20;
+  }
+  
+  .example-mat-menu {
+    float:right;
+  }
+  
+  .example-logo {
+    width: 100px;
+    height: 25px;
+    margin: 1%;
+  }
+  
+  .example-sidenav {
+    width: 200px;
+  }
+  
+  .example-navlist-item {
+    padding: auto;
+  }
+  
+  .example-sidenav-container {
+    height: 100%;
+    flex: 1;
+  }
+  
+  .example-form {
+    min-width: 150px;
+    max-width: 1000px;
+    padding: 1%;
+    width: 100%;
+    margin: auto;
+  }
+  
+  .example-header-image {
+    background-image: url('../../../assets/images/danny-rubin.jpg');
+    background-size: cover;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 15px;
+    width: 10px;
+    height: 10px;
+  }

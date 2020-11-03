@@ -31,44 +31,9 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <form class="example-form" [formGroup]="myFormGroup" (ngSubmit)="onFormSubmit()">
-        <mat-form-field style="width: 100%">
-          <input type="text"
-                 placeholder="Search for pre-built communication templates here"
-                 aria-label="Number"
-                 matInput
-                 formControlName="question">
-        </mat-form-field>
-      </form>
-
-      <router-outlet></router-outlet>
-
-      <!-- <div class="grid-container" *ngIf="templateQueryResponses.length == 0">
-        <p style="text-align: center;">Please enter in your topic above & pre-built templates will appear on this list..</p>
+      <div class="grid-container">
+        <router-outlet></router-outlet>
       </div>
-
-      <div class="grid-container" *ngIf="templateQueryResponses.length > 0">
-          <mat-expansion-panel expanded="true" style="margin-top: 20px" *ngFor="let result of this.templateQueryResponses">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  <div class="example-header-image"></div>
-                  <h3><i>{{ result.template.title}}</i></h3>
-                  <h5> &nbsp;&nbsp; Match: {{ 1 - result.match.toFixed(2) }}%</h5>
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <mat-panel-description>
-                <p>
-                  {{ result.template.description }}
-                </p>
-              </mat-panel-description>
-              <mat-action-row>
-                <a [routerLink]="'/build-content'">
-                  <button class="mat-button-color" mat-raised-button color="primary">Select</button>
-                </a>
-              </mat-action-row>
-          </mat-expansion-panel>
-      </div> -->
-      
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

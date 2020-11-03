@@ -1,0 +1,35 @@
+<form class="example-form" [formGroup]="myFormGroup" (ngSubmit)="onFormSubmit()">
+        <mat-form-field style="width: 100%">
+        <input type="text"
+                placeholder="Search for pre-built communication templates here"
+                aria-label="Number"
+                matInput
+                formControlName="question">
+        </mat-form-field>
+        <div class="grid-container" *ngIf="templateQueryResponses.length == 0">
+            <p style="text-align: center;">Please enter in your topic above & pre-built templates will appear on this list..</p>
+        </div>
+
+        <div class="grid-container" *ngIf="templateQueryResponses.length > 0">
+          <mat-expansion-panel style="margin-top: 20px" *ngFor="let result of this.templateQueryResponses">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <div class="example-header-image"></div>
+                  <h4 style="float:left; width:33%"><b>{{ result.template.title }}</b></h4>
+                  <h5 style="float:right; width:50%">{{ result.template.summary }}</h5>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-panel-description>
+                <p>
+                    {{ result.template.description }}
+                </p>
+              </mat-panel-description>
+              <mat-action-row>
+                <button mat-raised-button>Clear</button>
+                <a [routerLink]="'/template'">
+                  <button class="mat-button-color" mat-raised-button color="primary">Submit</button>
+                </a>
+              </mat-action-row>
+          </mat-expansion-panel>
+        </div>
+</form>

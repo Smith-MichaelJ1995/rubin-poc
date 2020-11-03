@@ -1,5 +1,4 @@
 /* WHEN HAVE TIME, CONVERT FROM CSS TO SCSS */
-
 .example-container {
   display: flex;
   flex-direction: column;
@@ -22,12 +21,7 @@
   display: grid;
   /* height: 400px; */
   align-content: start;
-  margin: 0 2% 0 2%;
-}
-
-.flex-container {
-  display: flex;
-  float: center;
+  margin: 0 0% 0% 0%;
 }
 
 .example-settings-nav-button {
@@ -55,23 +49,4 @@
 .example-sidenav-container {
   height: 100%;
   flex: 1;
-}
-
-.example-form {
-  min-width: 150px;
-  max-width: 1000px;
-  padding: 1%;
-  width: 100%;
-  margin: auto;
-}
-
-.example-header-image {
-  background-image: url('../assets/images/danny-rubin.jpg');
-  background-size: cover;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 15px;
-  margin: 15px;
-  width: 10px;
-  height: 10px;
 }
