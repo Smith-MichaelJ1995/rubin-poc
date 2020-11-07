@@ -1,35 +1,43 @@
 <form class="example-form" [formGroup]="myFormGroup" (ngSubmit)="onFormSubmit()">
+        <!-- <h2 style="text-align: center;">How Can We Help You Communicate More Effectively?</h2> -->
+        <h2 style="text-align: center;">How Can We Help You Communicate Today?</h2>
+        <p style="text-align: center;"><i>Tell us what you're looking to write, and we will work to build your message through Danny Rubin's proven templates!</i></p>
         <mat-form-field style="width: 100%">
         <input type="text"
-                placeholder="Search for pre-built communication templates here"
+                placeholder="What can we help you write today? (Emails, Resumes, Linkedin, Jobs)"
                 aria-label="Number"
                 matInput
                 formControlName="question">
         </mat-form-field>
-        <div class="grid-container" *ngIf="templateQueryResponses.length == 0">
-            <p style="text-align: center;">Please enter in your topic above & pre-built templates will appear on this list..</p>
-        </div>
 
-        <div class="grid-container" *ngIf="templateQueryResponses.length > 0">
-          <mat-expansion-panel style="margin-top: 20px" *ngFor="let result of this.templateQueryResponses">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  <div class="example-header-image"></div>
-                  <h4 style="float:left; width:33%"><b>{{ result.template.title }}</b></h4>
-                  <h5 style="float:right; width:50%">{{ result.template.summary }}</h5>
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <mat-panel-description>
-                <p>
-                    {{ result.template.description }}
-                </p>
-              </mat-panel-description>
-              <mat-action-row>
-                <button mat-raised-button>Clear</button>
-                <a [routerLink]="'/template'">
-                  <button class="mat-button-color" mat-raised-button color="primary">Submit</button>
-                </a>
-              </mat-action-row>
-          </mat-expansion-panel>
-        </div>
 </form>
+
+<div class="grid-container" *ngIf="templateQueryResponses != null">
+  <hr style="border-top: 1px solid  #eee; width: 100%">
+  <div class="grid-container" *ngIf="templateQueryResponses.length == 0">
+    <p style="text-align: center;">No results have been found for your search..</p>
+  </div>
+  
+  <div class="grid-container" *ngIf="templateQueryResponses.length > 0">
+    <p style="text-align: center; font-size:18px"><b>Here is a list of pre-defined templates related to your use-case. Get started by following the prompts below..</b></p>
+    <mat-expansion-panel expanded=True style="margin-top: 20px" *ngFor="let result of this.templateQueryResponses">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <div class="example-header-image"></div>
+            <h3 style="float:left;">{{ result.template.title }}</h3>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-panel-description>
+          <p>
+              {{ result.template.description }}
+          </p>
+        </mat-panel-description>
+        <mat-action-row>
+          <button mat-raised-button>Clear</button>
+          <a [routerLink]="'/template'">
+            <button class="mat-button-color" mat-raised-button color="primary">Submit</button>
+          </a>
+        </mat-action-row>
+    </mat-expansion-panel>
+  </div>
+</div>

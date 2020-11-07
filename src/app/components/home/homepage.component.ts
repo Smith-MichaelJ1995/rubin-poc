@@ -54,7 +54,6 @@ export class HomepageComponent implements OnInit {
     this.myFormGroup = new FormGroup({
       question: new FormControl("")
     });
-    this.templateQueryResponses = [];
     this.templateDatabase = [
       {
         title: "Writing A Strong Profile Summary Jobs",
@@ -63,7 +62,7 @@ export class HomepageComponent implements OnInit {
           The summary section requires brevity and critical thinking. You must explain what you’re about and the impact you make on others.`
       },
       {
-        title: "Asking About Opportunities As A Recent Grad",
+        title: "How could I ask about job opportunities as a recent college graduate?",
         summary: "Focus on what you have accomplished. Show your value. This is some additional text that is purely random in nature.",
         description: `As you come out of school and approach employers, you need an email to prove your maturity and poise. I have seen too many email pitches from recent grads fall flat. Too much focus on “I’m a hard worker” and “I’m detail oriented.” Forget that stuff.`
       }
