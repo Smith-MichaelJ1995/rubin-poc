@@ -1,4 +1,4 @@
-<form class="example-form" [formGroup]="myFormGroup" (ngSubmit)="onFormSubmit()">
+<form class="example-form" [formGroup]="templateSearchFormGroup" (ngSubmit)="onFormSubmit()">
         <!-- <h2 style="text-align: center;">How Can We Help You Communicate More Effectively?</h2> -->
         <h2 style="text-align: center;">How Can We Help You Communicate Today?</h2>
         <p style="text-align: center;"><i>Tell us what you're looking to write, and we will work to build your message through Danny Rubin's proven templates!</i></p>
@@ -27,10 +27,47 @@
             <h3 style="float:left;">{{ result.template.title }}</h3>
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <mat-panel-description>
-          <p>
-              {{ result.template.description }}
-          </p>
+        <mat-panel-description class="content-container">
+          <div>
+            <p>
+              <b>
+                {{ result.template.description }}
+              </b>
+            </p>
+          </div>
+          <div>
+              <!-- result of this.templateQueryResponses -->
+              <form class="content-container" [formGroup]="fetchRespectiveFormGroupObject(result)">
+                <h3>Step #1: Who are you writing to?</h3>
+                <mat-form-field appearance="standard">
+                  <mat-label>Type the name of individual below</mat-label>
+                  <input matInput placeholder="Enter the individual's name here">
+                  <mat-icon matSuffix>person_outline</mat-icon>
+                </mat-form-field>
+
+                <hr style="border-top: 4px dotted  #bbb; width: 100%">
+
+                <h3>Step #2: What time of day did you meet?</h3>
+                <mat-form-field appearance="standard">
+                  <mat-label>Please select from the list below</mat-label>
+                  <mat-select>
+                    <mat-option *ngFor="let time of timesOfDay" [value]="time">
+                      {{ time }}
+                    </mat-option>
+                  </mat-select>
+                  <mat-icon matSuffix>watch_later</mat-icon>
+                </mat-form-field>
+
+                <hr style="border-top: 4px dotted  #bbb; width: 100%">
+
+                <mat-form-field appearance="standard">
+                  <mat-label>Standard form field</mat-label>
+                  <input matInput placeholder="Placeholder">
+                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                  <mat-hint>Hint</mat-hint>
+                </mat-form-field>
+              </form> 
+          </div>
         </mat-panel-description>
         <mat-action-row>
           <button mat-raised-button>Clear</button>
