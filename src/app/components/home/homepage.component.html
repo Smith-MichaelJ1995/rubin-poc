@@ -35,62 +35,19 @@
               </b>
             </p>
           </div>
-          <div>
-              <!-- result of this.templateQueryResponses -->
-              <form class="content-container" [formGroup]="fetchRespectiveFormGroupObject(result)">
-                <!-- <h3>Step #1: Who is the recipient of this message?</h3> -->
-                <mat-form-field appearance="standard">
-                  <mat-label>Type the name of individual below</mat-label>
-                  <input matInput placeholder="Enter the individual's name here">
-                  <mat-icon matSuffix>person_outline</mat-icon>
-                </mat-form-field>
-
-                <!-- <hr style="border-top: 4px dotted  #bbb; width: 100%"> -->
-
-                <!-- <h3>Step #2: What time of day did you meet?</h3>
-                <mat-form-field appearance="standard">
-                  <mat-label>Please select from the list below</mat-label>
-                  <mat-select>
-                    <mat-option *ngFor="let time of timesOfDay" [value]="time">
-                      {{ time }}
-                    </mat-option>
-                  </mat-select>
-                  <mat-icon matSuffix>watch_later</mat-icon>
-                </mat-form-field> -->
-
-                <!-- <hr style="border-top: 4px dotted  #bbb; width: 100%"> -->
-
-                <!-- <h3>Step #3: What is the title of the role?</h3> -->
-                <mat-form-field appearance="standard">
-                  <mat-label>Type in the offical title of the role below</mat-label>
-                  <input matInput placeholder="Enter the role name here">
-                  <mat-icon matSuffix>work_outline</mat-icon>
-                </mat-form-field>
-
-                <!-- <h3>Step #4: What skills do you offer?</h3> -->
-                <mat-form-field appearance="standard">
-                  <mat-label>Enter the key competancy that makes you valuable</mat-label>
-                  <input matInput placeholder="Enter a single skill here">
-                  <mat-icon matSuffix>person_pin</mat-icon>
-                </mat-form-field>
-
-                <!-- <h3>Step #5: Which department does this role belong to?</h3> -->
-                <mat-form-field appearance="standard">
-                  <mat-label>Enter the department you would be working for</mat-label>
-                  <input matInput placeholder="Enter a single department name here">
-                  <mat-icon matSuffix>group_work</mat-icon>
-                </mat-form-field>
-
-
-              </form> 
-          </div>
         </mat-panel-description>
-        <mat-action-row>
-          <button mat-raised-button>Clear</button>
-          <a [routerLink]="'/template'">
-            <button class="mat-button-color" mat-raised-button color="primary">Submit</button>
-          </a>
-        </mat-action-row>
+        <mat-action-row class="content-container">
+          <h4 style="text-align: center; font-size:18px;"><b>Complete the following prompts, then press 'Submit'</b></h4>
+          <form style="display: block; margin: auto" class="content-container" [formGroup]="result.promptsForm" (ngSubmit)="onTemplateFormSubmit(result)">
+            <mat-form-field style="width: 100%;" *ngFor="let prompt of result.template.prompts" appearance="{{ prompt.mat_ff_appearance }}">
+              <mat-label>{{ prompt.mat_label }}</mat-label>
+              <input matInput formControlName="{{ prompt.pId }}" placeholder="{{ prompt.mat_placeholder }}">
+              <mat-icon matSuffix>{{ prompt.mat_icon }}</mat-icon>
+            </mat-form-field>
+            <button style="float: right;" class="mat-button-color" mat-raised-button color="primary" type="submit" [disabled]="!result.promptsForm.valid">Submit</button>
+            <button style="float: right;" (click)="result.promptsForm.reset()" mat-raised-button>Clear</button>
+          </form>
+        </mat-action-row> 
     </mat-expansion-panel>
   </div>
 </div>

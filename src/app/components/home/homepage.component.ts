@@ -1,6 +1,6 @@
 // angular libraries and dependencies
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {AbstractControl, FormControl, FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import Fuse from 'fuse.js'
@@ -9,6 +9,7 @@ import Fuse from 'fuse.js'
 import {Template} from '../../models/Template';
 import {TemplateQueryResponse} from '../../models/TemplateQueryResponse';
 import { Prompt } from 'src/app/models/Prompt';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-homepage',
@@ -103,9 +104,10 @@ export class HomepageComponent implements OnInit {
         NOTE: If you’re traveling and can’t send a note the same day, it’s OK to write one the next day.`,
         prompts: [
           {
-            header: "Step #1: Who is the recipient of this message?",
+            // header: "Step #1: Who is the recipient of this message?",
+            pId: "p0",
             mat_ff_appearance: "standard",
-            mat_label: "Type the name of individual below",
+            mat_label: "Step #1: Who is the recipient of this message?",
             mat_placeholder: "Enter the individual's name here",
             mat_icon:"person_outline"
           },
@@ -117,24 +119,27 @@ export class HomepageComponent implements OnInit {
           //   mat_icon:"person_outline"
           // }
           {
-            header: "Step #3: What is the title of the role?",
+            // header: "Step #3: What is the title of the role?",
+            pId: "p2",
             mat_ff_appearance: "standard",
-            mat_label: "Type in the offical title of the role below",
+            mat_label: "Step #3: What is the title of the role?",
             mat_placeholder: "Enter the role name here",
             mat_icon:"work_outline"
           },
           {
-            header: "Step #4: What skills do you offer?",
-            mat_ff_appearance: "standard",
-            mat_label: "Enter the key competancy that makes you valuable",
-            mat_placeholder: "Enter a single skill here",
+            // header: "Step #4: What skills do you offer?",
+            pId: "p3",
+            mat_ff_appearance: "standard", 
+            mat_label: "Step #4: What skills do you offer?",
+            mat_placeholder: "Which key competancy makes you valuable?",
             mat_icon:"person_pin"
           },
           {
-            header: "Step #5: Which department does this role belong to?",
+            // header: "Step #5: Which department does this role belong to?",
+            pId: "p4",
             mat_ff_appearance: "standard",
-            mat_label: "Enter the department you would be working for",
-            mat_placeholder: "Enter a single department name here",
+            mat_label: "Step #5: Which department does this role belong to?",
+            mat_placeholder: "Enter the department you would be working for",
             mat_icon:"group_work"
           }
         ]
@@ -153,16 +158,6 @@ export class HomepageComponent implements OnInit {
     // search for template based on question text & populate results list
     this.fuseSearch(submittedFormValue).forEach(result => {
 
-      let response = {
-        match: result.score,
-        template: result.item,
-        promptsForm: this.buildFormControlsList(
-          result.item.prompts
-        )
-      }
-
-      console.log(response)
-
       // popluate the response objects
       this.templateQueryResponses.push(
         {
@@ -174,32 +169,42 @@ export class HomepageComponent implements OnInit {
         }
       )
 
-      // generate form group objects to capture form input
-      this.templateQueryResponsesFormGroups.push(
-        new FormGroup({
-          questionOne: new FormControl(""),
-          questionTwo: new FormControl(""),
-          questionThree: new FormControl(""),
-        })
-      )
-
     })
 
     console.log(this.templateQueryResponses)
   }
 
+  onTemplateFormSubmit(result: TemplateQueryResponse) {
+    console.log("This is a submit event")
+    // console.warn(promptForm.get);
+
+    let resultsForm: FormGroup = result.promptsForm
+    // let 
+  }
+
+  // onClearTemplateForm(promptsForm: FormGroup) {
+  //   promptsForm.reset()
+  // }
+
   buildFormControlsList(prompts: any[]): FormGroup {
 
-    let controlsPayload: any = {}
+    let formForThisPrompt = new FormGroup({})
 
     // add short ID that can be referred to when searching
-    prompts.forEach((prompt, index) => {
-      let promptName = "questionNo" + index
-      controlsPayload.promptName = new FormControl("")
+    prompts.forEach((prompt: Prompt) => {
+      formForThisPrompt.addControl(prompt.pId, new FormControl(
+        "",
+        [Validators.required]
+      ))
     });
 
+    return formForThisPrompt  
+  }
 
-    return new FormGroup(controlsPayload)
-    
+  fetchFormControlObject(promptsForm: TemplateQueryResponse, prompt: Prompt): any {
+    // console.log(result)
+    // return result.promptsForm.get(
+    //   prompt.pId
+    // )
   }
 }
