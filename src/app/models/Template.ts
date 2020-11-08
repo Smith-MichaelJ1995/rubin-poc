@@ -5,4 +5,5 @@ export interface Template {
     title: string;
     description: string;
     prompts: Prompt[];
+    message: string
 }

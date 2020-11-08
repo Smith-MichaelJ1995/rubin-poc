@@ -102,6 +102,17 @@ export class HomepageComponent implements OnInit {
         description: `You may have nailed the job interview, and the employer is ready to offer you the job. Then…you don’t send a thank-you email. Then…the employer begins to wonder, “Hmm, maybe he’s not so sharp after all.”
         Never let doubt creep into the employer’s brain. Send a proper thank-you note the same day of the interview so you continue to shine.
         NOTE: If you’re traveling and can’t send a note the same day, it’s OK to write one the next day.`,
+        message: `Hi p0,
+        
+        Thanks again for meeting with me p1. I appreciate your time and enjoyed learning more about the company.
+        As we discussed, I’m interested in the p2 role and feel my p3 skills would be a nice complement to your p4 department.
+        If you have any further questions, please feel free to ask.
+        Thanks so much, and I look forward to hearing from you!
+
+        Best,
+        p5
+
+        `,
         prompts: [
           {
             // header: "Step #1: Who is the recipient of this message?",
@@ -111,15 +122,14 @@ export class HomepageComponent implements OnInit {
             mat_placeholder: "Enter the individual's name here",
             mat_icon:"person_outline"
           },
-          // {
-          //   header: "Step #2: What time of day did you meet?",
-          //   mat_ff_appearance: "standard",
-          //   mat_label: "Please select from the list below",
-          //   mat_placeholder: "Enter the individual's name here",
-          //   mat_icon:"person_outline"
-          // }
           {
-            // header: "Step #3: What is the title of the role?",
+            pId: "p1",
+            mat_ff_appearance: "standard",
+            mat_label: "Step #2: When did you have the interview?",
+            mat_placeholder: "Enter time here (Yesterday, Earlier Today, Etc)",
+            mat_icon:"watch_later"
+          },
+          {
             pId: "p2",
             mat_ff_appearance: "standard",
             mat_label: "Step #3: What is the title of the role?",
@@ -127,20 +137,25 @@ export class HomepageComponent implements OnInit {
             mat_icon:"work_outline"
           },
           {
-            // header: "Step #4: What skills do you offer?",
             pId: "p3",
             mat_ff_appearance: "standard", 
-            mat_label: "Step #4: What skills do you offer?",
-            mat_placeholder: "Which key competancy makes you valuable?",
+            mat_label: "Step #4: What is your core competancy?",
+            mat_placeholder: "Which key skill makes you most qualified for this role?",
             mat_icon:"person_pin"
           },
           {
-            // header: "Step #5: Which department does this role belong to?",
             pId: "p4",
             mat_ff_appearance: "standard",
             mat_label: "Step #5: Which department does this role belong to?",
-            mat_placeholder: "Enter the department you would be working for",
+            mat_placeholder: "Enter the department name you would be working for",
             mat_icon:"group_work"
+          },
+          {
+            pId: "p5",
+            mat_ff_appearance: "standard",
+            mat_label: "Step #6: What is your name?",
+            mat_placeholder: "Please enter your name here",
+            mat_icon:"face"
           }
         ]
       }
@@ -171,15 +186,21 @@ export class HomepageComponent implements OnInit {
 
     })
 
-    console.log(this.templateQueryResponses)
   }
 
   onTemplateFormSubmit(result: TemplateQueryResponse) {
-    console.log("This is a submit event")
-    // console.warn(promptForm.get);
 
     let resultsForm: FormGroup = result.promptsForm
-    // let 
+    let message: string = result.template.message
+    
+    result.template.prompts.forEach((prompt: Prompt) => {
+      let formControlValue = resultsForm.get(prompt.pId)?.value
+      console.log("prompt.pId = " + prompt.pId)
+      console.log("form control value = " + formControlValue)
+      message = message.replace(prompt.pId, formControlValue)
+    })
+    
+    console.log(message)
   }
 
   // onClearTemplateForm(promptsForm: FormGroup) {

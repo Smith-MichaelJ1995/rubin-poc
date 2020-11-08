@@ -19,7 +19,7 @@
   </div>
   
   <div class="grid-container" *ngIf="templateQueryResponses.length > 0">
-    <p style="text-align: center; font-size:18px"><b>Here is a list of pre-defined templates related to your use-case. Get started by following the prompts below..</b></p>
+    <p style="text-align: center; font-size:18px"><b>Resulting list of templates related to your use-case. Get started by following the prompts below..</b></p>
     <mat-expansion-panel expanded=True style="margin-top: 20px" *ngFor="let result of this.templateQueryResponses">
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -37,7 +37,7 @@
           </div>
         </mat-panel-description>
         <mat-action-row class="content-container">
-          <h4 style="text-align: center; font-size:18px;"><b>Complete the following prompts, then press 'Submit'</b></h4>
+          <p style="text-align: center; font-size:18px;"><b>Complete these prompts, then press 'Submit' to build your message!</b></p>
           <form style="display: block; margin: auto" class="content-container" [formGroup]="result.promptsForm" (ngSubmit)="onTemplateFormSubmit(result)">
             <mat-form-field style="width: 100%;" *ngFor="let prompt of result.template.prompts" appearance="{{ prompt.mat_ff_appearance }}">
               <mat-label>{{ prompt.mat_label }}</mat-label>
