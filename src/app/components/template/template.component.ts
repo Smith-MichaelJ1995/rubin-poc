@@ -12,6 +12,7 @@ export class TemplateComponent {
   public message: string
 
   constructor() { 
+    // this.editor.protectedSource.push()
     this.message = history.state.data
     console.log(this.message)
   }
