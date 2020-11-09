@@ -1,1 +1,7 @@
-<p>template works!</p>
+<div *ngIf="message == ''" class="grid-container">
+    <p>Please re-direct to the homepage and select a template...</p>
+</div>
+<div *ngIf="message != ''" class="grid-container">
+    <h2 style="text-align: center;">Here is your 'Rubinized' Message:</h2>
+    <ckeditor data="<textarea>{{ message }}</textarea>"></ckeditor>
+</div>

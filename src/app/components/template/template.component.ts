@@ -1,22 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-
-// Incorporate Custom Services
-import { MessageBuilderService } from '../../services/message-builder.service';
+import { Component, OnDestroy } from '@angular/core';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
   styleUrls: ['./template.component.scss']
 })
-export class TemplateComponent implements OnInit {
+export class TemplateComponent {
 
-  messageBuildingService: MessageBuilderService;
+  public editor = CKEditorModule;
+  public message: string
 
-  constructor() { }
-
-  ngOnInit(): void {
-    // this.messageBuildingService = new MessageBuilderService()
-    console.log(this.messageBuildingService.getMessage())
+  constructor() { 
+    this.message = history.state.data
+    console.log(this.message)
   }
+
 
 }

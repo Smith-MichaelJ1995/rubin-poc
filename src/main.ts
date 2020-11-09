@@ -22,7 +22,6 @@ import {HomepageComponent} from '../src/app/components/home/homepage.component';
 import {TemplateComponent} from '../src/app/components/template/template.component';
 
 // Incorporate Custom Services
-import { MessageBuilderService } from '../src/app/services/message-builder.service';
 
 // Default MatFormField appearance to 'fill' as that is the new recommended approach and the
 // `legacy` and `standard` appearances are scheduled for deprecation in version 10.
@@ -46,8 +45,7 @@ import { MessageBuilderService } from '../src/app/services/message-builder.servi
   bootstrap: [AppComponent],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
-    { provide: APP_BASE_HREF, useValue : '/' },
-    MessageBuilderService
+    { provide: APP_BASE_HREF, useValue : '/' }
   ]
 })
 export class AppModule {}

@@ -12,20 +12,16 @@ import {TemplateQueryResponse} from '../../models/TemplateQueryResponse';
 import { Prompt } from 'src/app/models/Prompt';
 import { Validators } from '@angular/forms';
 
-
-// Incorporate Custom Services
-import { MessageBuilderService } from '../../services/message-builder.service';
-
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.scss']
+  styleUrls: ['./homepage.component.scss'],
+  providers: []
 })
 export class HomepageComponent implements OnInit {
 
   templateSearchFormGroup: FormGroup;
   templateQueryResponses: TemplateQueryResponse[];
-  messageBuildingService: MessageBuilderService;
   templateDatabase: Template[] = [
     // {
     //   title: "Writing A Strong Profile Summary Jobs",
@@ -50,14 +46,14 @@ export class HomepageComponent implements OnInit {
       description: `You may have nailed the job interview, and the employer is ready to offer you the job. Then…you don’t send a thank-you email. Then…the employer begins to wonder, “Hmm, maybe he’s not so sharp after all.”
       Never let doubt creep into the employer’s brain. Send a proper thank-you note the same day of the interview so you continue to shine.
       NOTE: If you’re traveling and can’t send a note the same day, it’s OK to write one the next day.`,
-      message: `Hi p0,
+      message: `Hi p0,\r\n
       
       Thanks again for meeting with me p1. I appreciate your time and enjoyed learning more about the company.
       As we discussed, I’m interested in the p2 role and feel my p3 skills would be a nice complement to your p4 department.
       If you have any further questions, please feel free to ask.
-      Thanks so much, and I look forward to hearing from you!
+      Thanks so much, and I look forward to hearing from you!\r\n
 
-      Best,
+      Best,\r\n
       p5
 
       `,
@@ -109,6 +105,8 @@ export class HomepageComponent implements OnInit {
     }
   ];
 
+  constructor(private router: Router) {}
+
 
   // perform fuzzy string search based on question
   fuseSearch(questionText: string) {
@@ -139,14 +137,10 @@ export class HomepageComponent implements OnInit {
   
   }
 
-  constructor(private router: Router) {}
-
   ngOnInit() {
     this.templateSearchFormGroup = new FormGroup({
       question: new FormControl("")
     });
-
-    this.messageBuildingService = new MessageBuilderService();
   }
 
   onFormSubmit() {
@@ -185,8 +179,8 @@ export class HomepageComponent implements OnInit {
     })
     
     // call the message builder service
-    this.messageBuildingService.setMessage(message)
-    this.router.navigate(['/template']);
+    // this.messageBuildingService.sendMessage(message); 
+    this.router.navigate(['/template'], {state: {data: message}});
   }
 
 
