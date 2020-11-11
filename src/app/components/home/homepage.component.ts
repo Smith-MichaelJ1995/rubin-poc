@@ -34,13 +34,93 @@ export class HomepageComponent implements OnInit {
     //   summary: "Focus on what you have accomplished. Show your value. This is some additional text that is purely random in nature.",
     //   description: `As you come out of school and approach employers, you need an email to prove your maturity and poise. I have seen too many email pitches from recent grads fall flat. Too much focus on “I’m a hard worker” and “I’m detail oriented.” Forget that stuff.`
     // },
-    // {
-    //   title: "How To Thank Somebody After a Job Interview?",
-    //   description: `You may have nailed the job interview, and the employer is ready to offer you the job. Then…you don’t send a thank-you email. Then…the employer begins to wonder, “Hmm, maybe he’s not so sharp after all.”
-    //   Never let doubt creep into the employer’s brain. Send a proper thank-you note the same day of the interview so you continue to shine.
-    //   NOTE: If you’re traveling and can’t send a note the same day, it’s OK to write one the next day.        
-    //   `
-    // }
+    {
+      title: "How To Ask About Job Opportunities As a Recent College Graduate?",
+      description: `As you come out of school and approach employers, you need an email to prove your maturity and poise.
+      I have seen too many email pitches from recent grads fall flat. Too much focus on “I’m a hard worker” and “I’m detail oriented.” Forget that stuff.`,
+      message: 'Subject line: Interested in p0 at p1\n\n' +
+      'My name is p2, and I’m a p3 from p4. I hope you’re doing well. \n' +
+      'I’m interested in a job in the p5 field and would like to learn more about p1. \n' +
+      'I read through p1\'s website and respect your efforts, in particular p6\n' +
+      'As a student at p4, I developed my p7 skills when p8\n\n' +
+      'I have attached my resume to this email. Please let me know if I can provide any more information.\n' +
+      'Thanks so much, and I hope to hear from you.\n\n' +
+      'Best,\n' +
+      'p9',
+      prompts: [
+        {
+          pId: "p0",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #1: What role are you interested in?",
+          mat_placeholder: "Enter exact role name or role type",
+          mat_icon:"work_outline"
+        },
+        {
+          pId: "p1",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #2: What is the name of this company?",
+          mat_placeholder: "Enter full name of company here",
+          mat_icon:"work_outline"
+        },
+        {
+          pId: "p2",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #3: What is your full name?",
+          mat_placeholder: "Enter legal name here (Ex: John A. Doe)",
+          mat_icon:"face"
+        },
+        {
+          pId: "p3",
+          mat_ff_appearance: "standard", 
+          mat_label: "Step #4: What is your occupational status?",
+          mat_placeholder: "Enter either 'recent graduate', 'senior', etc",
+          mat_icon:"work_outline"
+        },
+        {
+          pId: "p4",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #5: Which school did you most recently attend?",
+          mat_placeholder: "Enter the full name of your high school, college, or alma-mater",
+          mat_icon:"school"
+        },
+        {
+          pId: "p5",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #6: Which industry does this role belong to?",
+          mat_placeholder: "Enter name of industry here",
+          mat_icon:"work_outline"
+        },
+        {
+          pId: "p6",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #7: After researching this company, why do you want to work for them?",
+          mat_placeholder: "Sentence or two describing reasons you admire this company",
+          mat_icon:"person_pin"
+        },
+        {
+          pId: "p7",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #8: While in school, what key skill did you acquire that qualifies you for this role?",
+          mat_placeholder: "Enter in a single skill (Ex: 'Computer Programming', 'Video Editing')",
+          mat_icon:"school"
+        },
+        {
+          pId: "p8",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #9: While in school, describe how you acquired this key skill?",
+          mat_placeholder: "Enter a sentence or two describing a valuable project or experience.",
+          mat_icon:"school"
+        },
+        {
+          pId: "p9",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #10: Final Salutation",
+          mat_placeholder: "Enter your first name or preferred name here",
+          mat_icon:"face"
+        }
+
+      ]
+    },
     {
       title: "How To Thank Somebody After a Job Interview?",
       description: `You may have nailed the job interview, and the employer is ready to offer you the job. Then…you don’t send a thank-you email. Then…the employer begins to wonder, “Hmm, maybe he’s not so sharp after all.”
@@ -171,7 +251,8 @@ export class HomepageComponent implements OnInit {
     
     result.template.prompts.forEach((prompt: Prompt) => {
       let formControlValue = resultsForm.get(prompt.pId)?.value
-      message = message.replace(prompt.pId, formControlValue)
+      var re = new RegExp(prompt.pId, "gi");
+      message = message.replace(re, formControlValue)
     })
     
     // call the message builder service
