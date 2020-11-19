@@ -22,6 +22,7 @@ import {HomepageComponent} from '../src/app/components/home/homepage.component';
 import {TemplateComponent} from '../src/app/components/template/template.component';
 
 // Incorporate Custom Services
+import {TemplateDatabaseService} from '../src/app/services/template-database.service';
 
 // Default MatFormField appearance to 'fill' as that is the new recommended approach and the
 // `legacy` and `standard` appearances are scheduled for deprecation in version 10.
@@ -45,7 +46,8 @@ import {TemplateComponent} from '../src/app/components/template/template.compone
   bootstrap: [AppComponent],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
-    { provide: APP_BASE_HREF, useValue : '/' }
+    { provide: APP_BASE_HREF, useValue : '/' },
+    TemplateDatabaseService
   ]
 })
 export class AppModule {}
