@@ -224,6 +224,148 @@ export class TemplateDatabaseService {
           mat_icon:"face"
         }
       ]
+    },
+    // #2 HOW TO INTRODUCE YOURSELF TO A COMPANY FOR THE FIRST TIME
+    {
+      title: "How To Introduce Yourself (Your Business) To a Company For The First Time",
+      description: `The “cold call” email is one of the most challenging outreach messages for a business owner. The recipient doesn’t know you or trust you. How do you win the person over? \n
+      The key is to make the email personal and keep it brief. You want to appear authentic, open, honest and as someone who knows how to “get to the point.”`,
+      message: 'Hi p0,\n\n' +
+      'I\'m p1 with p2, p3.\n' +
+      'I hope that you are doing well. \n' +
+      'I am writing you because I think your team at p4 would like to learn more about p2.\n' +
+      'p5\n' +
+      'p6\n' +
+      'p7\n' +
+      'Please let me know your thoughts. I’m happy to answer any questions and hope we can start a conversation. \n' +
+      'Thanks,\n' +
+      'p8',
+      prompts: [
+        {
+          // header: "Step #1: Who is the recipient of this message?",
+          pId: "p0",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #1: Who is the recipient of this message?",
+          mat_placeholder: "Enter the individual's first and last name here (ex: Joe Brown)",
+          mat_icon:"person_outline"
+        },
+        {
+          pId: "p1",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #2: What is your full name name?",
+          mat_placeholder: "Please enter your first & last name here (ex: Mike Smith)",
+          mat_icon:"face"
+        },
+        {
+          pId: "p2",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #3: What is the name of your company?",
+          mat_placeholder: "Enter your company name here",
+          mat_icon:"watch_later"
+        },
+        {
+          pId: "p3",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #4: What is your value proposition?",
+          mat_placeholder: "Type 5-7 words on the product or service you offer (ex: “a maker of organic treats for dogs and cats”)",
+          mat_icon:"work_outline"
+        },
+        {
+          pId: "p4",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #5: What is the name of this person's company?",
+          mat_placeholder: "Enter their company name here",
+          mat_icon:"watch_later"
+        },
+        {
+          pId: "p5",
+          mat_ff_appearance: "standard", 
+          mat_label: "Step #6: What is the main reason why the person should care about your product/service?",
+          mat_placeholder: "Why should the person care? Why does your business matter? (ex: “The product is healthy, safe and selling out routinely on our website”)",
+          mat_icon:"person_pin"
+        },
+        {
+          pId: "p6",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #7: Refer to a recent accomplishment from this person’s company. (Mention pages like Recent News, Latest News, Blog or Press you've read).",
+          mat_placeholder: "Enter one sentence to show you studied the company’s website.  (ex: “Also, I want to tell you I enjoyed the photos from the recent Bark Bark 5K race you sponsored. The chihuahua with the running shoes? Too funny!”)",
+          mat_icon:"group_work"
+        },
+        {
+          pId: "p7",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #8: Share a recent success story (of your company)",
+          mat_placeholder: "Utilize data/metrics to back up your claim. (ex: “We began to sell Acme Pet Treats online in January 2017. In four months, we sold 4,500 units with limited social media marketing. Most of the buzz has been through word of mouth.”)",
+          mat_icon:"face"
+        },
+        {
+          pId: "p8",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #8: Closing Salutation",
+          mat_placeholder: "Please enter your first-name (or perferred name) here",
+          mat_icon:"face"
+        }
+      ]
+    },
+    // #3 HOW TO RECAP THE TEAM ON A BIG PROJECT
+    {
+      title: "How To Recap Your Team On A Big Project",
+      description: `Emails to your own team carry a great deal of weight. You want the office reputation as someone who communicates effectively. That way, you save everyone time!
+      Here’s a template to recap your team on a big project. Imagine the bold type in the email body below is yellow highlight.`,
+      message: 'Hi everyone,\n\n' +
+      'I have several updates about the p0 so I will lay them out as clearly as I can.\n\n' +
+      'p1 \n' +
+      'p2 \n' +
+      'p3 \n' +
+      'p4 \n' +
+      'Please let me know your thoughts.\n' +
+      'Thanks,\n' +
+      'p5',
+      prompts: [
+        {
+          // header: "Step #1: Who is the recipient of this message?",
+          pId: "p0",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #1: What is the name of this project",
+          mat_placeholder: "Enter the name of this project here: (ex: `Presentation to Leadership At Taylor Associates`)",
+          mat_icon:"person_outline"
+        },
+        {
+          pId: "p1",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #2: What is the main update that you need to articulate?",
+          mat_placeholder: "Summarize the most important information that your team needs to know. (ex: `What’s the biggest or most urgent news right now?`)",
+          mat_icon:"face"
+        },
+        {
+          pId: "p2",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #3: What is the first action item?",
+          mat_placeholder: "Be sure to include the names of any team members associated with this task. (ex: `Regina said she will continue work on the glitch whenever we try to put the program into sleep mode.`)",
+          mat_icon:"watch_later"
+        },
+        {
+          pId: "p3",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #4: What is the second action item?",
+          mat_placeholder: "Be sure to include the names of any team members associated with this task. (ex: `Donald, can you have an updated report on the analytic capabilities by Friday?`)",
+          mat_icon:"work_outline"
+        },
+        {
+          pId: "p4",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #5: What is the third action item?",
+          mat_placeholder: "Be sure to include the names of any team members associated with this task. (ex: `I know we’re running up against the holidays so can everyone reply to me with your vacation situation?`)",
+          mat_icon:"watch_later"
+        },
+        {
+          pId: "p5",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #6: Closing Salutation",
+          mat_placeholder: "Please enter your first-name (or perferred name) here",
+          mat_icon:"face"
+        }
+      ]
     }
   ];
 
