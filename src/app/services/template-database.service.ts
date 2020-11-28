@@ -366,6 +366,74 @@ export class TemplateDatabaseService {
           mat_icon:"face"
         }
       ]
+    },
+    // #4 HOW TO UPDATE YOUR BOSS ON THE STATUS OF A PROJECT
+    {
+      title: "How To Update Your Boss On The Status Of A Project",
+      description: `When you need to send a message up the chain to your boss or other leadership, here’s the sharpest way to do it.`,
+      message: 'Subject line: Updates Regarding p2\n\n' +
+      'Hi p0,\n\n' +
+      'Good p1.\n' +
+      'I have some updates on the p2 since we last spoke.\n\n Here’s the latest: \n' +
+      'p3\n' +
+      'p4\n' +
+      'p5\n' +
+      'Thanks, and I\'ll keep you updated.' +
+      'Best, \n\n' + 
+      'p6',
+      prompts: [
+        {
+          // header: "Step #1: Who is the recipient of this message?",
+          pId: "p0",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #1: What is the recipient's name?",
+          mat_placeholder: "Enter the name of the person you are emailing: (ex: `Pete, John, Sarah`)",
+          mat_icon:"person_outline"
+        },
+        {
+          pId: "p1",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #2: What time of day is it?",
+          mat_placeholder: "It's best practice to provide a salutation before delving into content (ex: `morning, afternoon, evening`)",
+          mat_icon:"face"
+        },
+        {
+          // header: "Step #1: Who is the recipient of this message?",
+          pId: "p2",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #3: What is the name of this project",
+          mat_placeholder: "Enter the name of this project here: (ex: `Presentation to Leadership At Taylor Associates`)",
+          mat_icon:"person_outline"
+        },
+        {
+          pId: "p3",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #4: What is your primary update?",
+          mat_placeholder: "Be sure to include the names of any team members associated with this task. (ex: `Donald, can you have an updated report on the analytic capabilities by Friday?`)",
+          mat_icon:"work_outline"
+        },
+        {
+          pId: "p4",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #5: What is your secondary update?",
+          mat_placeholder: "Be sure to include the names of any team members associated with this task. (ex: `I know we’re running up against the holidays so can everyone reply to me with your vacation situation?`)",
+          mat_icon:"watch_later"
+        },
+        {
+          pId: "p5",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #6: What is your tertiary update?",
+          mat_placeholder: "Be sure to include the names of any team members associated with this task. (ex: `I know we’re running up against the holidays so can everyone reply to me with your vacation situation?`)",
+          mat_icon:"watch_later"
+        },
+        {
+          pId: "p6",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #6: Closing Salutation",
+          mat_placeholder: "Please enter your first-name (or perferred name) here",
+          mat_icon:"face"
+        }
+      ]
     }
   ];
 
