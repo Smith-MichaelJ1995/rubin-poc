@@ -491,6 +491,62 @@ export class TemplateDatabaseService {
           mat_icon:"face"
         }
       ]
+    },
+    // #6 HOW TO CLARIFY NEEDS OR SPECIFICATIONS
+    {
+      title: "How To Clarify Needs Or Specifications",
+      description: `With client relations, never assume anything. A-N-Y-T-H-I-N-G.
+      If a client asks for help to design new business cards and you can’t remember if she said bold font or not bold font for the name/title…
+      ASK. Simple as that.
+      Don’t take chances or move too quickly. When in doubt, ASK.
+      Even tiny details — when done the wrong way — can cause enormous headaches for the client and diminish your standing in the relationship.
+      Here’s a template that incorporates the business card scenario, to give you a real-life example.
+      `,
+      message: 'Subject line: Quick Question About p0\n\n' +
+      'Hi p1,\n\n' +
+      'p2\n' + 
+      'p3\n\n' +
+      'Please let me know.\n\n' +
+      'Best,\n' +
+      'p4', 
+      prompts: [
+        {
+          // header: "Step #1: Who is the recipient of this message?",
+          pId: "p0",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #1: In short, what is the task at hand?",
+          mat_placeholder: "What are you inquiring about?: (ex: `The Business Card Design`)",
+          mat_icon:"person_outline"
+        },
+        {
+          pId: "p1",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #2: What is the client's first name?",
+          mat_placeholder: "Please enter the client's first name here: (ex: `Tyler`, `Travis`, `Ryan`)",
+          mat_icon:"person_outline"
+        },
+        {
+          pId: "p2",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #3: What is the current status?",
+          mat_placeholder: "Explain the current situation: (ex: `We are working on your new business card design and have a quick question.`)",
+          mat_icon:"person_outline"
+        },
+        {
+          pId: "p3",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #3: What is your question?",
+          mat_placeholder: "Describe your question here: (ex: `Do you want the name/title on the card to be bolded or not?`)",
+          mat_icon:"person_outline"
+        },
+        {
+          pId: "p4",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #5: Closing Salutation",
+          mat_placeholder: "Please enter your first-name (or perferred name) here",
+          mat_icon:"face"
+        }
+      ]
     }
   ];
 
