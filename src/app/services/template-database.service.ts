@@ -312,7 +312,7 @@ export class TemplateDatabaseService {
       title: "How To Recap Your Team On A Big Project",
       description: `Emails to your own team carry a great deal of weight. You want the office reputation as someone who communicates effectively. That way, you save everyone time!
       Here’s a template to recap your team on a big project. Imagine the bold type in the email body below is yellow highlight.`,
-      message: 'Hi everyone,\n\n' +
+      message: 'Hi Everyone,\n\n' +
       'I have several updates about the p0 so I will lay them out as clearly as I can.\n\n' +
       'p1 \n' +
       'p2 \n' +
@@ -430,6 +430,63 @@ export class TemplateDatabaseService {
           pId: "p6",
           mat_ff_appearance: "standard",
           mat_label: "Step #6: Closing Salutation",
+          mat_placeholder: "Please enter your first-name (or perferred name) here",
+          mat_icon:"face"
+        }
+      ]
+    },
+    // #5 HOW TO ASSIGN ROLES OR RESPONSIBILITIES
+    {
+      title: "How To Assign Roles Or Responsibilities",
+      description: `The best leaders understand the power of delegation.
+      For one, you divide up the work. Why put everything on yourself?
+      Plus, delegation empowers your employees. The approach shows you believe in your team members and makes everyone more capable.
+      When it’s time to delegate, the email template that follows will help you strike the right tone.`,
+      message: 'Subject line: Assigning Tasks For p0\n\n' +
+      'Hi Everyone,\n\n' +
+      'As we move ahead with the p0 project, I need all of us to take on different roles to make sure everything stays on track.\n' +
+      'I know if we all do our part, this project will be a success.\n\n' +
+      'p1\n' +
+      'In the meantime, please look for your name and make a note for what you need to do.\n' +
+      'p2\n' +
+      'We can recap all of our efforts p3\n' +
+      'If you have any questions, please give me a call.\n\n' +
+      'Thanks, \n' + 
+      'p4',
+      prompts: [
+        {
+          // header: "Step #1: Who is the recipient of this message?",
+          pId: "p0",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #1: What is the name of this project",
+          mat_placeholder: "Enter the name of this project here: (ex: `Presentation to Leadership At Taylor Associates`)",
+          mat_icon:"person_outline"
+        },
+        {
+          pId: "p1",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #2: What work will you do? How will you pull your weight?",
+          mat_placeholder: "Explain your role/responsibility first: (ex:`I will kick off conversations with the top brass at Alpha; we have an introductory video conference on Tuesday at 11 a.m`)",
+          mat_icon:"person_outline"
+        },
+        {
+          pId: "p2",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #3: What will be the roles and responsibilities of your co-workers?",
+          mat_placeholder: "Describe the roles & responsibilities of your teammates, one by one: (ex:`Damian: Manage the research component and report back. Jess: Be the front-facing team member to the alpha folks.`)",
+          mat_icon:"person_outline"
+        },
+        {
+          pId: "p3",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #4: When will the team be connecting to review progress?",
+          mat_placeholder: "Is there a next meeting date? (ex: `on July 8th`, `next tuesday`, `during next staff call`)",
+          mat_icon:"person_outline"
+        },
+        {
+          pId: "p4",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #5: Closing Salutation",
           mat_placeholder: "Please enter your first-name (or perferred name) here",
           mat_icon:"face"
         }
