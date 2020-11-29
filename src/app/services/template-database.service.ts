@@ -535,7 +535,7 @@ export class TemplateDatabaseService {
         {
           pId: "p3",
           mat_ff_appearance: "standard",
-          mat_label: "Step #3: What is your question?",
+          mat_label: "Step #4: What is your question?",
           mat_placeholder: "Describe your question here: (ex: `Do you want the name/title on the card to be bolded or not?`)",
           mat_icon:"person_outline"
         },
@@ -543,6 +543,66 @@ export class TemplateDatabaseService {
           pId: "p4",
           mat_ff_appearance: "standard",
           mat_label: "Step #5: Closing Salutation",
+          mat_placeholder: "Please enter your first-name (or perferred name) here",
+          mat_icon:"face"
+        }
+      ]
+    },
+    // #7 HOW TO SHARE BAD NEWS
+    {
+      title: "How To Share Bad News",
+      description: `It’s no fun to share bad news, but that task usually falls to the leader.
+      When it’s time to address your team, be up front and show how the company plans to address the problem or make changes.`,
+      message: 'Subject line: Update Regarding p0\n\n' +
+      'Hi Team,\n\n' +
+      'p1\n' + 
+      'p2\n' +
+      'p3\n' +
+      'p4\n' +
+      'If anyone has questions, please reach out to me directly. \n\n' +
+      'Thanks for all your hard work,\n' +
+      'p5',
+      prompts: [
+        {
+          // header: "Step #1: Who is the recipient of this message?",
+          pId: "p0",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #1: What is the topic of the update?",
+          mat_placeholder: "Describe the subject of the news: (ex: `Bonuses for Q4 2018`)",
+          mat_icon:"person_outline"
+        },
+        {
+          pId: "p1",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #2: Cut to the chase -- what’s the issue or problem?",
+          mat_placeholder: "Describe the bad news in 1-2 complete sentences: (ex: `I want to give you an update on bonuses for Q4 2018. We did not meet our planned billing for the quarter and for that reason are unable to issue bonuses.`)",
+          mat_icon:"person_outline"
+        },
+        {
+          pId: "p2",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #3: Explain -- Why did this happen?",
+          mat_placeholder: "Give an explanation of the bad news in 1-2 complete sentences: (ex: `I believe our total billable hours were down because of vacation time and increased bench time waiting on client staffing and projects to start.`)",
+          mat_icon:"person_outline"
+        },
+        {
+          pId: "p3",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #4: Rebound -- How will you and the team make it right?",
+          mat_placeholder: "Provide a next step to rebound from the bad news in 1-2 complete sentences: (ex: `That being said, we’re off to a strong start this year. Our sales staff has added five new clients since February.`)",
+          mat_icon:"person_outline"
+        },
+        {
+          pId: "p4",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #5: Rebound -- Why are you hopeful about the future?",
+          mat_placeholder: "Conclude with an optimistic final line: (ex: `I am confident in a strong 2019 Q1. And I believe we will again hit our targets and find our stride.`)",
+          mat_icon:"person_outline"
+        },
+        {
+          pId: "p5",
+          mat_ff_appearance: "standard",
+          mat_label: "Step #6: Closing Salutation",
           mat_placeholder: "Please enter your first-name (or perferred name) here",
           mat_icon:"face"
         }
